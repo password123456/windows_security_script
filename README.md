@@ -21,9 +21,9 @@ CheckList:
   - password complexity.
 
 2. Account Lockout Policy
-  - lockout count.
-  - lockout duration.
-  - reset lockout count.
+  - account lockout count.
+  - account lockout duration.
+  - reset account lockout count.
 
 3. System default accounts status
   - default Administrator account name.
