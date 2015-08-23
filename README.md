@@ -2,8 +2,7 @@
 
 Overview:
 - windows security check scripts.
-- Within the script the UAC execution codes included. 
-- so you don't have to worry about UAC Execution. just run and click confirm button when the UAC msgbox appear.
+- Within the script the UAC execution codes included. so you don't have to worry about UAC Execution. just run and click confirm button when the UAC msgbox appear.
 - i hope this helps to keep your windows system security's.
 
 License:
