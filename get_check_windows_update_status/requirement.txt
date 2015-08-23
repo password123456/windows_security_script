@@ -1,6 +1,6 @@
 * if you have "Wsusscn2.cab" file in script running directory, 
 the script will check windows update status using Wsusscn2.cab.
-but not in case, the script will check windows update status usiing currently windows update download status.
+but not in case, the script will check windows update status using currently local windows update download status.
 
 * Wsusscn2.cab file can get below.
 http://go.microsoft.com/fwlink/p/?LinkID=74689
