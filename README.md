@@ -1,16 +1,16 @@
 # Windows Security Check Scripts
 
 Overview:
-- windows security check scripts.
+- Windows security check scripts.
 - Within the script the UAC execution codes included. so you don't have to worry about UAC Execution. just run and click confirm button when the UAC msgbox appear.
-- i hope this helps to keep your windows system security's.
+- I hope this helps to keep your windows system security's.
 
 License:
  - Freeware, but You always need to cite your sources.
 
 CheckList:
 - You can check most of the recommendations of the Security Guide.
-- see the list below.
+- See the list below.
 
 ```sh
 1. Password Policy
