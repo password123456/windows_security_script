@@ -14,37 +14,6 @@ if WScript.Arguments.length =0 Then
     
 else
 
-    '-------------------------------------------
-    ' 점검 결과 저장
-    '-------------------------------------------
-
-    Function LOG_FILE(TITLE,RESULT)
-
-        dim objFSO, objEnv, objobjLOGFILE, objWSHShell  
-        dim objSCRIPTDIR, objLOGFILE
-        
-        Set objWSHShell = CreateObject("WScript.Shell")
-        Set objFSO = CreateObject("Scripting.FileSystemObject")
-        Set objEnv = objWSHShell.Environment("process")
-
-        objSCRIPTDIR = objFSO.GetParentFolderName(WScript.ScriptFullName)
-        objLOGFILE = objSCRIPTDIR & "\" & objEnv("COMPUTERNAME") & "_checkRESULT.txt"
-
-        if objFSO.fileExists(objLOGFILE) then 
-            '이미 화일이 존재한다면 화일을 추가쓰기(Append)로 연다.
-            set objobjLOGFILE = objFSO.OpenTextFile(objLOGFILE,8,true)
-        else
-            '아직 화일이 존재하지 않는다면 새로만든다.
-            set objobjLOGFILE = objFSO.CreateTextFile(objLOGFILE,True)
-        end if
-
-        objobjLOGFILE.writeline ("[항목]: " & TITLE & vbcrlf & _
-                              "- 결과: " & RESULT & vbcrlf)
-        Set objFSO = Nothing
-        objobjLOGFILE.close
-
-    end Function
-
    '----------------------------------------------------
    ' Registry 가져오기
    '----------------------------------------------------
@@ -101,7 +70,6 @@ else
 
     Function GET_SNMP_SERVICE_STATUS()
 
-        dim TITLE
         dim strKeyPath
         dim KEY
         dim strComputer
@@ -179,6 +147,6 @@ else
             RESULT = "양호" & vbcrlf & "- 내용: [ " & strSNMP & " ] 서비스 설치되지 않음"
 
         end if
-        call LOG_FILE(TITLE,RESULT)
+        wscript.echo RESULT
     end function
 end if
