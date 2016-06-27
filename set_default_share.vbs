@@ -30,22 +30,20 @@
 		    ret = 2
 		    SET_DEFAULT_SHARE = ret
 		end if
-	end function
+    end function
 	
-	dim retSetlog
+dim retSetlog
 	
-	default_share = "IPC$,Admin$,C$,D$,E$,F$,G$,H$,I$"
-	list=Split(default_share,",")
+default_share = "IPC$,Admin$,C$,D$,E$,F$,G$,H$,I$"
+list=Split(default_share,",")
 	
-    for each share_list in list
-	    retSetlog = SET_DEFAULT_SHARE(share_list)
-	next
-	if retSetlog = 2 then
-	    wscript.echo "net.exe " & strNET & "not exits. "
-	    
-	elseif retSetlog = 0 then
-	    wscript.echo "default_share: " & retSetlog & " / ok"
-
-	else
-	    wscript.echo "retSetlog: " & retSetlog & " / Fail"
-	end if
+for each share_list in list
+    retSetlog = SET_DEFAULT_SHARE(share_list)
+next
+if retSetlog = 2 then
+    wscript.echo "net.exe " & strNET & "not exits. "
+elseif retSetlog = 0 then
+    wscript.echo "default_share: " & retSetlog & " / ok"
+else
+    wscript.echo "retSetlog: " & retSetlog & " / Fail"
+end if
