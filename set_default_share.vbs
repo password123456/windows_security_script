@@ -2,15 +2,14 @@
     Function SET_DEFAULT_SHARE(share_name)
 	
         dim objFSO
-		dim objWSHShell, strCMD
-		dim strSystemRoot, strNET
-		dim ret
+	dim objWSHShell, strCMD
+	dim strSystemRoot, strNET
+	dim ret
 	
-	    Set objWSHShell = CreateObject("WScript.Shell")
+	Set objWSHShell = CreateObject("WScript.Shell")
         Set objFSO= CreateObject("Scripting.FileSystemObject")
-        Set objEnv = objWSHShell.Environment("process")
-	    
-		strSystemRoot = objWSHShell.ExpandEnvironmentStrings( "%SystemRoot%" )		
+            
+	strSystemRoot = objWSHShell.ExpandEnvironmentStrings( "%SystemRoot%" )		
         strNET = strSystemRoot & "\system32\net.exe" '
 		
         ' net.exe 존재할 경우만 실행
