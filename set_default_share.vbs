@@ -15,21 +15,15 @@
 		
         ' net.exe 존재할 경우만 실행
         If objFSO.FileExists( strNET ) Then		
+		strCMD = "%comspec% /c %SYSTEMROOT%\system32\"'strCMD header
+		ret = objWSHShell.run(strCMD & "net share " & share_name & " /delete" & """", 0,True)
+		wscript.echo "Default SHARE: " & share_name & " / ret: "& ret
+		ret = ret + ret
 			
-			strCMD = "%comspec% /c %SYSTEMROOT%\system32\"'strCMD header
-			ret = objWSHShell.run(strCMD & "net share " & share_name & " /delete" & """", 0,True)
-			'ret = objWSHShell.run(strCMD & "net share sl " & log_list & " /ms:" & log_size & """", 0,True)
-			'objWSHShell.run strCMD & "wevtutil sl " & x """" & "/ms:" & set_logsize & """", 0
-			'objWSHShell.run strCMD & "secedit /export /cfg " & """" & strDUMP_SECPOLICY & """", 0
-			wscript.sleep 1000
-			wscript.echo "Default SHARE: " & share_name & " / ret: "& ret
-			'wscript.echo ret
-			ret = ret + ret
-			
-			if ret <> 0 then
+		if ret <> 0 then
                 ret = 1
             else
-			    wscript.echo "Default SHARE: " & share_name & " delete."
+		wscript.echo "Default SHARE: " & share_name & " delete."
                 ret = 0
             end if		
             SET_DEFAULT_SHARE = ret			
