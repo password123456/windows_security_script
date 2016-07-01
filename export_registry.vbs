@@ -31,9 +31,9 @@ test5 = SAVE_REG(TITLE,KEY,KEY_TYPE,KEY_NAME_POS,398)
 ' create .reg file
 '-----------------------------
 Function SAVE_REG(title,reg_key,reg_keytype,reg_keyname_pos,reg_keyname_value)
-    dim objFSO,objobjLOGFILE,objWSHShell
-    dim objSCRIPTDIR, objLOGFILE
-    dim checktime
+  dim objFSO,objobjLOGFILE,objWSHShell
+  dim objSCRIPTDIR, objLOGFILE
+  dim checktime
 	dim segments
 	dim export_keyname, export_key
 	dim hx_reg_keyname_value
@@ -43,7 +43,7 @@ Function SAVE_REG(title,reg_key,reg_keytype,reg_keyname_pos,reg_keyname_value)
 	checktime= year(now)& "." & right("0" & month(now),2) & "." & right("0" & day(now),2) & _
                "_" & right("0" & hour(now),2) & "." & right("0" & minute(now),2) & "." & right("0" & second(now),2)
 	    		
-    Set objWSHShell = CreateObject("WScript.Shell")
+  Set objWSHShell = CreateObject("WScript.Shell")
 	Set objFSO = CreateObject("Scripting.FileSystemObject")
 			
 	objSCRIPTDIR = objFSO.GetParentFolderName(WScript.ScriptFullName)
@@ -53,11 +53,11 @@ Function SAVE_REG(title,reg_key,reg_keytype,reg_keyname_pos,reg_keyname_value)
 	wscript.echo "reg_keyname_value: " & reg_keyname_value & " ret:" & ret
 	
 	If ret = "-1" then
-	    segments = Split(reg_key,"\")
+	  segments = Split(reg_key,"\")
 		export_keyname = segments(reg_keyname_pos)
 		wscript.echo "export_keyname: " & export_keyname
-        b = UBound(segments)
-        b = b - 1
+    b = UBound(segments)
+    b = b - 1
             
         For i = 0 to b
             export_key = export_key & segments(i) & "\"
